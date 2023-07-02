@@ -1,17 +1,30 @@
 package com.bridgelabz.addressbookapp.model;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
-public class AddressBookData {
+@Entity
+@Table(name = "addresbook")
+public @Data class AddressBookData {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "contactNo")
     private String contactNo;
+    @Column(name = "emailID")
     private String emailID;
+    @Column(name = "password")
+
     private String password;
+    @Column(name = "state")
     private String state;
+    @Column(name = "city")
     private String city;
+    @Column(name = "zipcode")
     private String zipcode;
 
     public AddressBookData(int id, AddressBookDTO addressBookDTO) {
