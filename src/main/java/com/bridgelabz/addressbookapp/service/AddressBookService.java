@@ -17,7 +17,7 @@ public class AddressBookService implements IAddressBookService{
 
     @Override
     public AddressBookData getAddressbookDataByID(int id) {
-        return addressBookDataList.get(id);
+        return addressBookDataList.get(id-1);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class AddressBookService implements IAddressBookService{
 
     @Override
     public void deleteAddressBookData(int id) {
-        addressBookDataList.remove(id);
+        addressBookDataList.remove(id-1);
     }
 }
