@@ -1,6 +1,7 @@
 package com.bridgelabz.addressbookapp.service;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
+import com.bridgelabz.addressbookapp.exception.AddressBookException;
 import com.bridgelabz.addressbookapp.model.AddressBookData;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class AddressBookService implements IAddressBookService{
 
     @Override
     public AddressBookData getAddressbookDataByID(int id) {
-        return addressBookDataList.get(id-1);
+        return addressBookDataList.stream().filter(employeeData -> employeeData.getId() == id).findFirst().orElseThrow(() ->new AddressBookException("AddressBook Not Found"));
     }
 
     @Override
