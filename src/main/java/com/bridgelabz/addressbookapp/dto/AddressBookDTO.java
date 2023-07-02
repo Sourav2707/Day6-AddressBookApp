@@ -5,10 +5,11 @@ import lombok.Data;
 
 public @Data class AddressBookDTO{
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Name invalid")
-    private String name;
-    private String contactNo;
-    @Override
-    public String toString() {
-        return "name ="+name+" : Contact no ="+contactNo;
-    }
+    public String name;
+    public String contactNo;
+    public String emailID;
+    public String password;
+    public String state;
+    public String city;
+    public String zipcode;
 }
