@@ -27,7 +27,14 @@ public @Data class AddressBookData {
     @Column(name = "zipcode")
     private String zipcode;
 
-    public AddressBookData(int id, AddressBookDTO addressBookDTO) {
+    public AddressBookData() {
+
+    }
+    public AddressBookData(AddressBookDTO addressBookDTO) {
+        this.updateAddressBookData(addressBookDTO);
+    }
+
+    public void updateAddressBookData(AddressBookDTO addressBookDTO) {
         this.id = id;
         this.name = addressBookDTO.getName();
         this.contactNo = addressBookDTO.getContactNo();
