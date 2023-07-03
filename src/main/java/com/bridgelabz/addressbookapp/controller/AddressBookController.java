@@ -51,4 +51,10 @@ public class AddressBookController {
         ResponseDTO responseDTO = new ResponseDTO("Deleted Successfully", "Deleted id : "+id);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
+    @GetMapping("/get/{state}")
+    public ResponseEntity<ResponseDTO> getAddressBookByState(@PathVariable("state") String state) {
+        List<AddressBookData> addressByState = addressBookService.getAddressBookByState(state);
+        ResponseDTO responseDTO = new ResponseDTO("Get call Success", addressByState);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
+    }
 }

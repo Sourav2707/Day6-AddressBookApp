@@ -48,4 +48,8 @@ public class AddressBookService implements IAddressBookService {
         AddressBookData addressBookData = this.getAddressbookDataByID(id);
         addressBookrepository.delete(addressBookData);
     }
+    @Override
+    public List<AddressBookData> getAddressBookByState(String state) {
+        return addressBookrepository.findByState(state);
+    }
 }
